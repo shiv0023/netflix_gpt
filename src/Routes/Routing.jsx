@@ -9,7 +9,7 @@ const Routing = () => {
 <div>
     <Header/>
 <Routes>
-<Route path="/" element={<div><Body/></div>}/>
+<Route path="/Body" element={<div><Body/></div>}/>
 <Route path="/" element={<div><Login/></div>}/>
 
 <Route path="/Browse" element={<div><Browse/></div>}/>
