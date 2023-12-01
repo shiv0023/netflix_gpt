@@ -3,16 +3,16 @@ import Header from './Header'
 import Validation from '../Utils/Validate'
 import { auth } from "../Utils/Firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
+import { Loginimg } from '../Utils/Constant';
 
 const Login = () => {
-    const [isSignin, SetSigIn] = useState(false)
+    const [isSignin, SetSigIn] = useState()
     const [errorMessage, SetErrorMessage] = useState()
     const name = useRef(null)
     const Email = useRef(null)
     const Password = useRef(null)
-    const navigate = useNavigate()
+
     const handleSubmit = () => {
         const message = Validation(Email.current.value, Password.current.value)
         SetErrorMessage(message)
@@ -31,7 +31,7 @@ const Login = () => {
                         const { uid, email, displayName, photoURL } = auth.currentUser;
 
                         console.log(user, ",hj")
-                        navigate("/Browse")
+
 
                     }).catch((error) => {
                         SetErrorMessage(error.message)
@@ -52,7 +52,7 @@ const Login = () => {
                     const user = userCredential.user;
                     // ...
                     console.log(user, "kn")
-                    navigate("/Browse")
+
 
                 })
                 .catch((error) => {
@@ -69,7 +69,7 @@ const Login = () => {
     return (
         <div className=' font-bold text-3xl   '>
             <div className='absolute'>
-                <img className='' alt='login' src='https://wallpapercave.com/wp/wp1917119.jpg' />
+                <img className='' alt='login' src={Loginimg} />
             </div>
             <form onSubmit={(e) => e.preventDefault()} className='  p-20  w-3/12 bg-black absolute my-36 mx-auto right-0 left-0 rounded-md text-white bg-opacity-80 '>
                 <h1 className='text-white mb-3 font-bold text-3xl'>{isSignin ? "Sign In" : "Sign Up"}</h1>
