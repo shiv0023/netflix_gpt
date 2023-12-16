@@ -83,7 +83,7 @@ const Login = () => {
                 <p className='font-normal cursor-pointer' onClick={ToogleSigupForm}>{isSignin ? "New to Netflix ? Sign Up Now" : "Already Registered Sign In Now"}</p>
             </form>
         </div>
-    )
+    )       
 }
 
 export default Login;

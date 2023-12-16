@@ -8,7 +8,7 @@ const MovieTrailer = () => {
     const GetApi = async () => {
         const data = await fetch("https://api.themoviedb.org/3/movie/1075794/videos?language=en-US", options)
         const myData = await data.json()
-        console.log(myData.results)
+        console.log(myData.results,"h")
         const FilterData = myData.results.filter((video) => video.type === "Trailer")
         const trailer = FilterData ? FilterData[0] : myData.results[0]
         console.log(trailer)
